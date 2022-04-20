@@ -6,11 +6,12 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Task;
 //use Tests\Unit\Withfaker;
-use Illuminate\Foundation\Testing\WithFaker;
+//use Illuminate\Foundation\Testing\WithFaker;
 
 
 class TaskUnitTest extends TestCase
 { 
+/*
     use RefreshDatabase, Withfaker;
 
     public function test_model_user_exists()
@@ -19,6 +20,7 @@ class TaskUnitTest extends TestCase
 
         $this->assertModelExists($user);
     }
+*/
 
     public function test_schema_support_integer()
     {
