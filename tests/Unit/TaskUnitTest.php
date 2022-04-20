@@ -6,6 +6,8 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Task;
 //use Tests\Unit\Withfaker;
+use Illuminate\Foundation\Testing\WithFaker;
+
 
 class TaskUnitTest extends TestCase
 { 
