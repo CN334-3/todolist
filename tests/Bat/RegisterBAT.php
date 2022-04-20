@@ -5,7 +5,10 @@ class RegisterBAT
     //user enters the correct characters in the user field or not?
     public function testregis_correct_charac_user()
     {
-        $this->assertTrue(true);
+        $user = new User([
+            'user' => "abc#%de"
+        ]);
+        $this->assertNotEquals('abcde', $user->email)
     }
 
     //user enters the correct characters in the email field or not?

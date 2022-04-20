@@ -5,7 +5,12 @@ class BasicFlowUAT
     //Add task
     public function test_addtask()
     {
-        $this->assertTrue(true);
+        $task = new Task([
+            'description' => null,
+            'user_id' => 10
+        ]);
+
+        $this->assertEquals(null, $task->description);
     }
 
     //Delete task
@@ -23,12 +28,29 @@ class BasicFlowUAT
     //Login task
     public function test_logintask()
     {
-        $this->assertTrue(true);
+        $user = User::factory()->create();
+ 
+        $response = $this->actingAs($user)
+                         ->withSession(['banned' => false])
+                         ->get('/');
+
+        $this->actingAs($user, 'web');
     }
 
     //Register task
     public function test_registertask()
     {
-        $this->assertTrue(true);
+        $response = $this->postJson('/api/user', [
+        'name' => 'users',
+        'email' => 'sally@example.com',
+        'password' => '12345678',]);
+ 
+        $response
+            ->assertStatus(201)
+            ->assertJson([
+                'created' => true,
+            ]);
+
+        $this->assertTrue($response['created']);
     }
 }
